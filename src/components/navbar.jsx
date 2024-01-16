@@ -1,3 +1,7 @@
+// "use client";
+
+import Link from "next/link";
+
 const Navbar = () => {
     return (
         <div>
@@ -16,10 +20,15 @@ const Navbar = () => {
                         >
                             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
                         </svg>
-                        <span class="ml-3 text-xl">Tailblocks</span>
+                        <span class="ml-3 text-xl">Recipe Next</span>
                     </a>
                     <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-                        <a class="mr-5 hover:text-white">First Link</a>
+                        <Link
+                            href="/create-recipe"
+                            class="mr-5 hover:text-white"
+                        >
+                            Create Recipe
+                        </Link>
                         <a class="mr-5 hover:text-white">Second Link</a>
                         <a class="mr-5 hover:text-white">Third Link</a>
                         <a class="mr-5 hover:text-white">Fourth Link</a>
