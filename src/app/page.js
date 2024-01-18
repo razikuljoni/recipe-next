@@ -52,7 +52,7 @@ export default async function Home() {
                     <h2 class="b-0 tracking-widest text-xs title-font font-medium text-gray-400 mb-1 mt-5">RECIPE DESCRIPTION</h2>
                     <p class="mb-3 text-white">{recipe?.description.slice(0, 200)}...</p>
                   </div>
-                  <Link href={`/api/recipe/${recipe?.id}`}>
+                  <Link href={`/recipe/${recipe?.id}`}>
                     <div class="flex items-end justify-center bg-blue-500 hover:bg-blue-600 p-3 rounded-b-md text-white absolute w-full bottom-0">
                       <p class="flex items-center">
                         SEE DETAILS

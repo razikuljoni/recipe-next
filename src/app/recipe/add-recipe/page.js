@@ -123,7 +123,6 @@ function RecipeForm() {
             <div className="bg-slate-900 shadow p-4 py-8" data-images={images}>
                 <div className="heading text-center font-bold text-3xl m-5 bg-slate-900 text-white">Create a New Recipe</div>
                 <form onSubmit={handleCreateRecipe} className="editor mx-auto w-10/12 flex flex-col text-gray-800 border border-gray-300 p-4 shadow-lg max-w-2xl">
-
                     <div className="mb-4 flex flex-col">
                         <label htmlFor="recipeName" className="text-white font-bold mb-2">Recipe Name</label>
                         <input

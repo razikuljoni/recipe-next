@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 
 const Navbar = () => {
     const pathname = usePathname();
-    console.log(pathname);
 
     return (
         <div>
@@ -29,7 +28,7 @@ const Navbar = () => {
                     <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center"></nav>
                     <Link href={pathname === "/" ? "/recipe/add-recipe" : pathname === "/recipe/add-recipe" ? "/" : "/"}>
                         <button className="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0">
-                        {pathname === "/recipe/add-recipe" ? "Home" : pathname === "/" ? "Add Recipe" : "Unknown"}
+                        {pathname === "/recipe/add-recipe" ? "Home" : pathname === "/" ? "Add Recipe" : "Home"}
                         <svg
                             fill="none"
                             stroke="currentColor"
