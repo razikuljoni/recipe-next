@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Link from "next/link";
 
 async function fetchRecipes() {
-  const res = await fetch("http://localhost:3000/api/recipe");
+  const res = await fetch("http://localhost:3000/api/recipe", { cache: 'no-store' });
   const data = await res.json();
 
   if (!res.ok) {

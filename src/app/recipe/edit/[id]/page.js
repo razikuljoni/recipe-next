@@ -8,7 +8,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import ingredientsList from '../../../../../ingredients.json';
 
 const getRecipeById = async (id) => {
-    const res = await fetch(`http://localhost:3000/api/recipe/${id}`);
+    const res = await fetch(`http://localhost:3000/api/recipe/${id}`, { cache: 'no-store' });
     const data = await res.json();
     return data.recipe;
 };
@@ -106,7 +106,7 @@ const UpdateRecipe = ({ params }) => {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(updatedRecipe),
-                });
+                }, { cache: 'no-store' });
 
                 if (response.ok) {
                     toast.success('Recipe updated successfully', { id: "1" });
@@ -118,7 +118,7 @@ const UpdateRecipe = ({ params }) => {
                 toast.error('Error updating recipe', { id: "1" });
             }
         } else {
-            console.log("Form validation failed");
+            toast.error('Form validation failed', { id: "1" });
         }
     };
 

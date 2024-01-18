@@ -1,23 +1,47 @@
+"use client";
+
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
+
+const deleteRecipe = async (id) => {
+    const res = fetch(`http://localhost:3000/api/recipe/${id}`, {
+        method: "DELETE",
+        "Content-Type": "application/json",
+    }, { cache: 'no-store' });
+    return (await res).json();
+};
 
 async function fetchRecipe(id) {
-    const res = await fetch(`http://localhost:3000/api/recipe/${id}`);
+    const res = await fetch(`http://localhost:3000/api/recipe/${id}`, { cache: 'no-store' });
     const data = await res.json();
 
     if (!res.ok) {
+        toast.error("Failed to fetch data");
         throw new Error("Failed to fetch data");
     }
 
     return data;
 }
 
-const page = async ({ params }) => {
+const RecipeDetails = async ({ params }) => {
     const { recipe } = await fetchRecipe(params?.id);
+    // const router = useRouter();
+
+    const handleDeleteRecipe = async () => {
+        const res = await deleteRecipe(params.id);
+        if (res.message === "Success"){
+            toast.success("Recipe deleted successfully");
+            window.location.href = "/";
+        }
+    }
 
     return (
         <div>
+            <Toaster/>
             <Navbar />
             <div className="container mx-auto mt-5">
                 <div className="h-[560px] relative flex flex-col border-2 border-gray-200 border-opacity-60 rounded-lg">
@@ -49,8 +73,7 @@ const page = async ({ params }) => {
                                 </p>
                             </div>
                             </Link>
-                            <Link href={`/recipe/edit/${recipe?.id}`}>
-                                <div class=" bg-red-500 hover:bg-red-600 p-3 rounded-br-md rounded-tl-md text-white absolute cursor-pointer bottom-0 right-0">
+                            <div onClick={handleDeleteRecipe} class=" bg-red-500 hover:bg-red-600 p-3 rounded-br-md rounded-tl-md text-white absolute cursor-pointer bottom-0 right-0">
                                     <p class="flex items-center">
                                         Delete Recipe
                                         <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -59,7 +82,6 @@ const page = async ({ params }) => {
                                         </svg>
                                     </p>
                                 </div>
-                            </Link>
                         </div>
                     </div>
                 </div>
@@ -68,4 +90,4 @@ const page = async ({ params }) => {
         </div>
     );
 };
-export default page;
+export default RecipeDetails;

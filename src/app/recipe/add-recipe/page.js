@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import ingredientsList from '../../../../ingredients.json';
 import Footer from '../../../components/Footer.jsx';
 import Navbar from '../../../components/Navbar.jsx';
@@ -107,18 +108,19 @@ function RecipeForm() {
             });
 
             if (response.ok) {
-                console.log('Recipe submitted successfully');
-                // Reset or redirect as needed
+                toast.success('Recipe submitted successfully');
+                //TODO:  Reset or redirect as needed
             } else {
-                console.error('Failed to submit recipe');
+                toast.error('Failed to submit recipe');
             }
         } else {
-            console.log("Form validation failed");
+            toast.error('Form validation failed');
         }
     };
 
     return (
         <>
+            <Toaster />
             <Navbar />
             <div className="bg-slate-900 shadow p-4 py-8" data-images={images}>
                 <div className="heading text-center font-bold text-3xl m-5 bg-slate-900 text-white">Create a New Recipe</div>
