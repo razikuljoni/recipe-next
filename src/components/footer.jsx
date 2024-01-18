@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Footer = () => {
     return (
         <footer className="text-gray-400 bg-gray-900 body-font">
@@ -18,11 +20,12 @@ const Footer = () => {
                                 >
                                     <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
                                 </svg>
-                                <span className="ml-3 text-xl">Tailblocks</span>
+                                <span className="ml-3 text-xl">
+                                    Recipe Next
+                                </span>
                             </a>
                             <p className="mt-2 text-sm text-gray-500">
-                                Air plant banjo lyft occupy retro adaptogen
-                                indego
+                                Find and make your favourite recipe here.
                             </p>
                         </div>
                     </div>
@@ -31,26 +34,20 @@ const Footer = () => {
                             CATEGORIES
                         </h2>
                         <nav className="list-none mb-10">
-                            <li>
-                                <a className="text-gray-400 hover:text-white">
-                                    First Link
-                                </a>
-                            </li>
-                            <li>
-                                <a className="text-gray-400 hover:text-white">
-                                    Second Link
-                                </a>
-                            </li>
-                            <li>
-                                <a className="text-gray-400 hover:text-white">
-                                    Third Link
-                                </a>
-                            </li>
-                            <li>
-                                <a className="text-gray-400 hover:text-white">
-                                    Fourth Link
-                                </a>
-                            </li>
+                            <Link href="/">
+                                <li>
+                                    <span className="text-gray-400 hover:text-white">
+                                        Home
+                                    </span>
+                                </li>
+                            </Link>
+                            <Link href="/recipe/create-recipe">
+                                <li>
+                                    <span className="text-gray-400 hover:text-white">
+                                        Create Recipe
+                                    </span>
+                                </li>
+                            </Link>
                         </nav>
                     </div>
                     <div className="lg:w-1/3 md:w-1/2 w-full px-4">
@@ -76,11 +73,6 @@ const Footer = () => {
                                 Button
                             </button>
                         </div>
-                        <p className="text-gray-500 text-sm mt-2 md:text-left text-center">
-                            Bitters chicharrones fanny pack
-                            <br className="lg:block hidden" />
-                            waistcoat green juice
-                        </p>
                     </div>
                 </div>
             </div>
@@ -99,17 +91,17 @@ const Footer = () => {
                         >
                             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
                         </svg>
-                        <span className="ml-3 text-xl">Tailblocks</span>
+                        <span className="ml-3 text-xl">Recipe Next</span>
                     </a>
                     <p className="text-sm text-gray-400 sm:ml-6 sm:mt-0 mt-4">
-                        © 2020 Tailblocks —
+                        © 2024 Recipe Next —
                         <a
                             href="https://twitter.com/knyttneve"
                             className="text-gray-500 ml-1"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            @knyttneve
+                            @razikuljoni
                         </a>
                     </p>
                     <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">

@@ -24,13 +24,13 @@ const UpdateRecipe = ({ params }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
+                toast.loading("Fetching Recipe", { id: "1" });
                 const data = await getRecipeById(params.id);
                 setRecipeName(data.name);
                 setRecipeIngredients(data.ingredients);
                 setRecipeDescription(data.description);
                 toast.success("Fetching Complete", { id: "1" });
             } catch (err) {
-                console.error(err);
                 toast.error("Error fetching Recipe", { id: "1" });
             }
         };
