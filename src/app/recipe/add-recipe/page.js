@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import ingredientsList from '../../../ingredients.json';
+import ingredientsList from '../../../../ingredients.json';
 import Footer from '../../../components/Footer.jsx';
 import Navbar from '../../../components/Navbar.jsx';
 
@@ -120,15 +120,15 @@ function RecipeForm() {
     return (
         <>
             <Navbar />
-            <div className="bg-white shadow p-4 py-8" data-images={images}>
-                <div className="heading text-center font-bold text-3xl m-5 text-gray-800 bg-white">Create a new Recipe</div>
+            <div className="bg-slate-900 shadow p-4 py-8" data-images={images}>
+                <div className="heading text-center font-bold text-3xl m-5 bg-slate-900 text-white">Create a New Recipe</div>
                 <form onSubmit={handleCreateRecipe} className="editor mx-auto w-10/12 flex flex-col text-gray-800 border border-gray-300 p-4 shadow-lg max-w-2xl">
 
                     <div className="mb-4 flex flex-col">
-                        <label htmlFor="recipeName" className="text-gray-800 font-bold mb-2">Recipe Name</label>
+                        <label htmlFor="recipeName" className="text-white font-bold mb-2">Recipe Name</label>
                         <input
                             id="recipeName"
-                            className={`title bg-gray-100 border border-gray-300 p-2 outline-none ${errors.recipeName && 'border-red-500'}`}
+                            className={`title bg-slate-800 rounded-md text-white border border-gray-300 p-2 outline-none ${errors.recipeName && 'border-red-500'}`}
                             spellCheck="false"
                             type="text"
                             value={recipeName}
@@ -138,11 +138,11 @@ function RecipeForm() {
                     </div>
 
                     <div className="mb-4 flex flex-col">
-                        <label htmlFor="ingredients" className="text-gray-800 font-bold mb-2">Ingredients</label>
+                        <label htmlFor="ingredients" className="text-white font-bold mb-2">Add Ingredients</label>
                         <select
                             id="ingredients"
                             multiple
-                            className={`ingredients bg-gray-100 border border-gray-300 p-2 outline-none ${errors.ingredients && 'border-red-500'}`}
+                            className={`ingredients bg-slate-800 rounded-md text-white border border-gray-300 p-2 outline-none ${errors.ingredients && 'border-red-500'}`}
                             onChange={handleIngredientChange}
                             value={recipeIngredients}
                         >
@@ -155,7 +155,7 @@ function RecipeForm() {
                         {errors.ingredients && <p className="text-red-500 text-xs mt-1">{errors.ingredients}</p>}
                         {recipeIngredients.length > 0 && (
                             <div className="selected-ingredients mb-4 flex flex-wrap">
-                                <label className="text-gray-800 font-bold mb-2 w-full mt-3">Selected Ingredients</label>
+                                <label className="text-white font-bold mb-2 w-full mt-3">Selected Ingredients</label>
                                 {recipeIngredients.map((ingredient, index) => (
                                     <div key={index} className="selected-ingredient bg-gray-200 m-1 p-2 flex items-center">
                                         <span className="mr-2">{ingredient}</span>
@@ -169,10 +169,10 @@ function RecipeForm() {
                     </div>
 
                     <div className="mb-4 flex flex-col">
-                        <label htmlFor="description" className="text-gray-800 font-bold mb-2">Description</label>
+                        <label htmlFor="description" className="text-white font-bold mb-2">Description</label>
                         <textarea
                             id="description"
-                            className={`description bg-gray-100 sec p-3 h-60 border border-gray-300 outline-none ${errors.description && 'border-red-500'}`}
+                            className={`description text-white bg-slate-800 rounded-md sec p-3 h-60 border border-gray-300 outline-none ${errors.description && 'border-red-500'}`}
                             spellCheck="false"
                             value={recipeDescription}
                             onChange={(e) => setRecipeDescription(e.target.value)}
@@ -181,13 +181,13 @@ function RecipeForm() {
                     </div>
 
                     <div className="mb-4 flex flex-col">
-                        <label htmlFor="imageUpload" className="text-gray-800 font-bold mb-2">Upload Image</label>
+                        <label htmlFor="imageUpload" className="text-white font-bold mb-2">Upload Image</label>
                         <input
                             id="imageUpload"
                             type="file"
                             multiple
                             onChange={handleFileChange}
-                            className={`outline-none ${errors.images && 'border-red-500'}`}
+                            className={`outline-none text-white ${errors.images && 'border-red-500'}`}
                             required
                         />
                         {errors.images && <p className="text-red-500 text-xs mt-1">{errors.images}</p>}
